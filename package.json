@@ -1,0 +1,20 @@
+{
+  "name": "bun-modules-ts-static-server",
+  "module": "index.ts",
+  "scripts": {
+    "serve": "bun run src/server/server.ts",
+    "build": "bun run src/server/transpiler.ts",  
+    "dev": "PORT=3002 bun run --watch src/server/server.ts & WATCHER=true bun run --watch src/server/transpiler.ts"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bunTranspiler": "https://github.com/Voldemortas/BunTranspiler"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "imports": {
+    "#src/*": "./build/*"
+  }
+}
